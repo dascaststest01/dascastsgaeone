@@ -4,10 +4,16 @@ language:
 python:
   - "2.7"
   
+env:
+  - secure: "qPP4XRrdoPtpwpG4PwxptbB/DqYcvdFUFm5nxbBCnjENPk4+yz3bZst+ytlcr1J/Fi4EoYYmL1t+UW+hu5jZ4twiHOstjB6qlLEuQyXy/Poq8EX9isukxUYZGhl5ZtvbGrPIVvHvG2iNIoP6S+8rv3H81/hWRVRB3mO0QW6OBpk="
+  
 install:
   - wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.14.zip
   - unzip -q google_appengine_1.9.14.zip
   - pip install webtest
+  
+after_success:
+  - ./google_appengine_1.9.14/appcfg.py --oauth2_refresh_token=$REFRESH_TOKEN -A dascastsgaeone update .
   
 script:
   - python test.py

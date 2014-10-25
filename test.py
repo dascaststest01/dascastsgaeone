@@ -8,7 +8,7 @@ class MainTestCase(unittest.TestCase):
     def test_index(self):
          app = webtest.TestApp(webapp2.WSGIApplication([('/', main.MainHandler),]))
          response = app.get('/')
-         self.assertEqual(response.normal_body, 'its great')
+         self.assertEqual(response.normal_body, 'aaaa')
         
 def paths():
     gae_path = './google_appengine'

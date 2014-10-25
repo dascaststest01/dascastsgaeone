@@ -1,1 +1,3 @@
 *.pyc
+google_appengine/
+*.zip
